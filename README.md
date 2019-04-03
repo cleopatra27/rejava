@@ -82,7 +82,8 @@ return response;
 
 
 ## Mobile Money
-`mobileMoney mobileMoney = new mobileMoney();
+<code>
+mobileMoney mobileMoney = new mobileMoney();
 mobilemoneyPayload mobilemoneyPayload = new mobilemoneyPayload();
 mobilemoneyPayload.setPBFPubKey(PBFPubKey);
 mobilemoneyPayload.setCurrency(currency);
@@ -99,4 +100,5 @@ mobilemoneyPayload.setPaymane_type(Payment_type);
 
 String response = mobileMoney.domobilemoney(mobilemoneyPayload);
 
-return response; `
+return response; 
+</code>
