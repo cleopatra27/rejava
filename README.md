@@ -1,6 +1,6 @@
 # Direct Charge
 
-<code>
+```bash
 cardPayment cardPayment = new cardPayment();
 cardLoad cardload = new cardLoad cardload();
 cardload.setPBFPubKey(PBFPubKey);
@@ -79,7 +79,7 @@ validatecardpayload.
   
 String overresponse = validatecardcharge.doflwcardvalidate(validatecardpayload);
 return response;
-</code>
+```
 
 ## Mobile Money
 <code>
