@@ -82,7 +82,7 @@ return response;
 ```
 
 ## Mobile Money
-<code>
+```bash
 mobileMoney mobileMoney = new mobileMoney();
 mobilemoneyPayload mobilemoneyPayload = new mobilemoneyPayload();
 mobilemoneyPayload.setPBFPubKey(PBFPubKey);
@@ -101,4 +101,4 @@ mobilemoneyPayload.setPaymane_type(Payment_type);
 String response = mobileMoney.domobilemoney(mobilemoneyPayload);
 
 return response; 
-</code>
+```
