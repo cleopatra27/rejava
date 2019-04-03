@@ -1,6 +1,6 @@
 # Direct Charge
 
-```bash
+```java
 cardPayment cardPayment = new cardPayment();
 cardLoad cardload = new cardLoad cardload();
 cardload.setPBFPubKey(PBFPubKey);
