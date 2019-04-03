@@ -82,7 +82,7 @@ return response;
 ```
 
 ## Mobile Money
-```bash
+```java
 mobileMoney mobileMoney = new mobileMoney();
 mobilemoneyPayload mobilemoneyPayload = new mobilemoneyPayload();
 mobilemoneyPayload.setPBFPubKey(PBFPubKey);
@@ -101,4 +101,223 @@ mobilemoneyPayload.setPaymane_type(Payment_type);
 String response = mobileMoney.domobilemoney(mobilemoneyPayload);
 
 return response; 
+```
+
+## QR code
+```java
+qrPayments qrPayments = new qrPayments();
+qrcodePayload qrcodepayload = new qrcodePayload();
+qrcodepayload.setPBFPubKey(PBFPubKey);
+qrcodepayload.setAmount(amount);
+qrcodepayload.setTxref(teRef);
+qrcodepayload.setPayment_Type(payment_type);
+qrcodepayload.setDevice_fingerprint(Device_fingerprint);
+qrcodepayload.setMetaname(metaname);
+qrcodepayload.setMetavalue(metavalue);
+qrcodepayload.setEmail(email);
+
+String response = qrPayments.doflwqrpayment(qrcodepayload);
+```
+
+## Bills
+
+```java
+bills bills = new bills();
+BillModel billmodel = new BillModel();
+billmodel.setCustomerId(CustomerId);
+billmodel.setReference(Reference);
+billmodel.setAmount(amount);
+billmodel.setIsAirtime(IsAirtime);
+billmodel.setBillername(billername);
+
+bills.dobillpayment(billmodel);
+```
+
+## BVN Validation
+```java
+bvnValidation bvnvalidation = new bvnValidation();
+bvnload bvnload = new bvnload();
+bvnload.setBvn(bvn)
+
+String response = bvnvalidation(bvnload);
+```
+
+## Payment Plans
+```java
+
+paymentplan paymentplan = new paymentplan();
+pamentplancreatepayload pamentplancreatepayload = new pamentplancreatepayload();
+pamentplancreatepayload.setAmount(amount);
+pamentplancreatepayload.setName(name);
+pamentplancreatepayload.setIntervale(interval);
+pamentplancreatepayload.setDuration(duration);
+pamentplancreatepayload.setRef(ref);
+
+String response = paymentplan.docreatepayment(pamentplancreatepayload);
+
+return response;
+```
+
+## Virtual Cards
+Sample Code to create a virtual card.
+
+```java 
+virtualCards virtualCards = new virtualCards();
+virtualcardpayload virtualcardpayload = new virtualcardpayload():
+virtualcardpayload.setCurrency(currency);
+virtualcardpayload.setAmount(amount);
+virtualcardpayload.setBilling_name(billing_name);
+virtualcardpayload.setBilling_address(billing_Address);
+virtualcardpayload.setBilling_city(billing_city);
+virtualcardpayload.setBilling_state(billing_state);
+virtualcardpayload.setBilling_postal_code(billing_postal_code);
+// virtualcardpayload.setSecret_Key(secret_key);
+
+String response = virtualCards.dovirtualcardcreate(virtualcardpayload);
+```
+
+Sample Code to get for a virtual card.
+```java 
+virtualCards virtualCards = new virtualCards();
+virtualcardpayload virtualcardpayload = new virtualcardpayload():
+virtualcardpayload.setId(id);
+// virtualcardpayload.setSecret_Key(secret_key);
+
+String response = virtualCards.dovirtualcardsearch(virtualcardpayload);
+```
+
+Sample Code to List virtual cards.
+```java
+virtualCards virtualCards = new virtualCards();
+virtualcardpayload virtualcardpayload = new virtualcardpayload():
+virtualcardpayload.setPage(page);
+// virtualcardpayload.setSecret_Key(secret_key);
+
+String response = virtualCards.dovirtualcardget(virtualcardpayload);
+```
+
+Sample Code to terminate a virtual card.
+```java
+virtualCards virtualCards = new virtualCards();
+virtualcardpayload virtualcardpayload = new virtualcardpayload():
+virtualcardpayload.setId(id);
+// virtualcardpayload.setSecret_Key(secret_key);
+
+String response = virtualCards.dovirtualcardterminate(virtualcardpayload);
+```
+
+Sample Code to fund a virtual card.
+```java
+virtualCards virtualCards = new virtualCards();
+virtualcardpayload virtualcardpayload = new virtualcardpayload():
+virtualcardpayload.setId(id);
+virtualcardpayload.setAmount(amount);
+virtualcardpayload.setDebit_currency(debit_currency);
+// virtualcardpayload.setSecret_Key(secret_key);
+
+String response = virtualCards.dovirtualcardfund(virtualcardpayload);
+```
+
+Sample Code to get a virtual card transaction.
+```java
+virtualCards virtualCards = new virtualCards();
+virtualcardpayload virtualcardpayload = new virtualcardpayload():
+virtualcardpayload.setId(id);
+virtualcardpayload.setFromDate(FromDate);
+virtualcardpayload.setToDate(ToDate);
+virtualcardpayload.setPageIndex(PageIndex);
+virtualcardpayload.setPageSize(pagesize);
+virtualcardpayload.setCardId(cardid);
+// virtualcardpayload.setSecret_Key(secret_key);
+
+String response = virtualCards.dovirtualcardfetchtrans(virtualcardpayload);
+```
+
+------
+```java
+virtualCards virtualCards = new virtualCards();
+withdrawcardpayload withdrawcardpayload = new withdrawcardpayload():
+virtualcardpayload.setCard_id(card_id);
+virtualcardpayload.setAmount(amount);
+// virtualcardpayload.setSecret_Key(secret_key);
+
+String response = virtualCards.dovirtualcardfwithdraw(withdrawcardpayload);
+```
+
+## Ebills
+
+Sample Code to create Ebills
+
+```java 
+ebills ebills = new ebills();
+ebillpayload ebillpayload = new ebillpayload();
+ebillpayload.setAccountnumber(accountnumber);
+ebillpayload.setNarration(narration);
+ebillpayload.setNumberofunits(numberofunits);
+ebillpayload.setCurrency(currency);
+ebillpayload.setAmount(amount);
+ebillpayload.setPhonenumber(phonenumber);
+ebillpayload.setEmail(email);
+ebillpayload.setTxRef(txref);
+//ebillpayload.setSeckey(SECKEY);
+
+String response = ebills.doebillscreate(ebillpayload);
+```
+
+Sample Code to update Ebills
+```java
+ebills ebills = new ebills();
+ebillpayload ebillpayload = new ebillpayload();
+ebillpayload.setReference(reference);
+ebillpayload.setCurrency(currency);
+ebillpayload.setAmount(amount);
+//ebillpayload.setSeckey(SECKEY);
+
+String response = ebills.doebillsupdate(ebillpayload);
+```
+
+## Refund
+
+Sample code to refund a transaction
+
+```java
+Refund refund = new Refund();
+refundPayload refundpayload = new refundPayload();
+refundpayload.setRef(ref);
+refundpayload.setAmount(amount);
+//refundpayload.setSceretKey(seckey);
+
+String response = refund.dorefund(refundpayload);
+```
+
+## Tokenized Charge
+
+Sample code for charging tokenised cards
+
+```java
+tokenCharge tokencharge = new tokenCharge();
+tokenChargePayload tokenchargepayload = new tokenChargePayload():
+tokenchargepayload.setCurrency(currency);
+tokenchargepayload.setToken(token);
+tokenchargepayload.setAmount(amount);
+tokenchargepayload.setEmail(email);
+tokenchargepayload.setFirstname(firstname);
+tokenchargepayload.setLastname(Lastname);
+tokenchargepayload.setIP(ip);
+tokenchargepayload.setTxref(texref);
+//tokenchargepayload.setSeckey(Seckey);
+
+String response = tokencharge.dotokenizedcharge(tokenchargepayload);
+```
+
+Sample code to update email for a token
+
+```java
+tokenCharge tokencharge = new tokenCharge();
+tokenChargePayload tokenchargepayload = new tokenChargePayload():
+tokenchargepayload.setEmail(email);
+tokenchargepayload.setToken(token);
+//tokenchargepayload.setSeckey(Seckey);
+
+String response = tokencharge.dotokenizedcharge(tokenchargepayload);
 ```
