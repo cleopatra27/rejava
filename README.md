@@ -1,5 +1,6 @@
 # Direct Charge
 
+<code>
 cardPayment cardPayment = new cardPayment();
 cardLoad cardload = new cardLoad cardload();
 cardload.setPBFPubKey(PBFPubKey);
@@ -77,9 +78,8 @@ validateCardPayload validatecardpayload = new validateCardPayload();
 validatecardpayload.
   
 String overresponse = validatecardcharge.doflwcardvalidate(validatecardpayload);
-
 return response;
-
+</code>
 
 ## Mobile Money
 <code>
