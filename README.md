@@ -3,23 +3,23 @@
 ```java
 cardPayment cardPayment = new cardPayment();
 cardLoad cardload = new cardLoad cardload();
-cardload.setPBFPubKey(PBFPubKey);
+cardload.setPublic_key(PBFPubKey);
 cardload.setCardno(cardno);
 cardload.setCvv(cvv);
-cardload.setExiprymonth(expirymonth);
+cardload.setExpirymonth(expirymonth);
 cardload.setCurrency(currency);
 cardload.setCountry(country);
 cardload.setAmount(amount);
 cardload.setEmail(email);
-cardload.setphonenumber(phonenumber);
+cardload.setPhonenumber(phonenumber);
 cardload.setfirstname(firstname);
 cardload.setLastname(lastname);
 cardload.setMetaname(metaname);
 cardload.setMetaValue(metavalue);
+cardload.setExpiryyear(exp_year);
 cardload.setRedirect_url(redirect_url);
 cardload.setDevice_fingerprint(device_fingerprint);
 cardload.setEncryption_key(encryption_key);
-cardload.setPublic_key(pub_key);
 cardload.setTest(test);
 //set test to 1 if sandbox and 0 if live
   
@@ -86,15 +86,16 @@ mobilemoneyPayload mobilemoneyPayload = new mobilemoneyPayload();
 mobilemoneyPayload.setPBFPubKey(PBFPubKey);
 mobilemoneyPayload.setCurrency(currency);
 mobilemoneyPayload.setAmount(amount);
-mobilemoneyPayload.setPhoneNumber(phonenumber);
+mobilemoneyPayload.setPhonenumber(phonenumber);
 mobilemoneyPayload.setEmail(email);
 mobilemoneyPayload.setFirstname(firstname);
-mobilemoneyPayload.setLastName(lastname);
-mobilemoneyPayload.setNarration(narration);
+mobilemoneyPayload.setLastname(lastname);
+mobilemoneyPayload.setNetwork(narration);
 mobilemoneyPayload.setMetaname(metaname);
+mobilemoneyPayload.setCountry(country);
 mobilemoneyPayload.setMetavalue(metavalue);
 mobilemoneyPayload.setDevice_fingerprint(device_fingerprint);
-mobilemoneyPayload.setPaymane_type(Payment_type);
+mobilemoneyPayload.setPayment_type(Payment_type);
 mobilemoneyPayload.setEncryption_key(encryption_key);
 mobilemoneyPayload.setPublic_key(pub_key);
 mobilemoneyPayload.setTest(test);
