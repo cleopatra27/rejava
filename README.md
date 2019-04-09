@@ -17,7 +17,11 @@ cardload.setLastname(lastname);
 cardload.setMetaname(metaname);
 cardload.setMetaValue(metavalue);
 cardload.setRedirect_url(redirect_url);
-cardload.setDevice_fingerprint(device_fingerprint)
+cardload.setDevice_fingerprint(device_fingerprint);
+cardload.setEncryption_key(encryption_key);
+cardload.setPublic_key(pub_key);
+cardload.setTest(test);
+//set test to 1 if sandbox and 0 if live
   
 String response = cardPayment.doflwcardpayment(cardload);
 
@@ -72,11 +76,6 @@ else if(myObject.optString("authurl")!="N/A")
   //load the url in an IFRAME
 }
 
-validateCardCharge validatecardcharge = new validateCardCharge();
-validateCardPayload validatecardpayload = new validateCardPayload();
-validatecardpayload.
-  
-String overresponse = validatecardcharge.doflwcardvalidate(validatecardpayload);
 return response;
 ```
 
@@ -96,6 +95,10 @@ mobilemoneyPayload.setMetaname(metaname);
 mobilemoneyPayload.setMetavalue(metavalue);
 mobilemoneyPayload.setDevice_fingerprint(device_fingerprint);
 mobilemoneyPayload.setPaymane_type(Payment_type);
+mobilemoneyPayload.setEncryption_key(encryption_key);
+mobilemoneyPayload.setPublic_key(pub_key);
+mobilemoneyPayload.setTest(test);
+//set test to 1 if sandbox and 0 if live
 
 String response = mobileMoney.domobilemoney(mobilemoneyPayload);
 
@@ -114,6 +117,9 @@ qrcodepayload.setDevice_fingerprint(Device_fingerprint);
 qrcodepayload.setMetaname(metaname);
 qrcodepayload.setMetavalue(metavalue);
 qrcodepayload.setEmail(email);
+qrcodepayload.setPublic_key(pub_key);
+qrcodepayload.setTest(test);
+//set test to 1 if sandbox and 0 if live
 
 String response = qrPayments.doflwqrpayment(qrcodepayload);
 ```
@@ -128,6 +134,9 @@ billmodel.setReference(Reference);
 billmodel.setAmount(amount);
 billmodel.setIsAirtime(IsAirtime);
 billmodel.setBillername(billername);
+billmodel.setSecretkey(sevretkey);
+billmodel.setTest(test);
+//set test to 1 if sandbox and 0 if live
 
 bills.dobillpayment(billmodel);
 ```
@@ -137,6 +146,8 @@ bills.dobillpayment(billmodel);
 bvnValidation bvnvalidation = new bvnValidation();
 bvnload bvnload = new bvnload();
 bvnload.setBvn(bvn)
+bvnload.setTest(test)
+//set test to 1 if sandbox and 0 if live
 
 String response = bvnvalidation(bvnload);
 ```
@@ -170,7 +181,8 @@ virtualcardpayload.setBilling_address(billing_Address);
 virtualcardpayload.setBilling_city(billing_city);
 virtualcardpayload.setBilling_state(billing_state);
 virtualcardpayload.setBilling_postal_code(billing_postal_code);
-// virtualcardpayload.setSecret_Key(secret_key);
+virtualcardpayload.setSecret_Key(secret_key);
+virtualcardpayload.setTest(test);
 
 String response = virtualCards.dovirtualcardcreate(virtualcardpayload);
 ```
@@ -180,7 +192,8 @@ Sample Code to get for a virtual card.
 virtualCards virtualCards = new virtualCards();
 virtualcardpayload virtualcardpayload = new virtualcardpayload():
 virtualcardpayload.setId(id);
-// virtualcardpayload.setSecret_Key(secret_key);
+virtualcardpayload.setSecret_Key(secret_key);
+virtualcardpayload.setTest(test);
 
 String response = virtualCards.dovirtualcardsearch(virtualcardpayload);
 ```
@@ -190,7 +203,8 @@ Sample Code to List virtual cards.
 virtualCards virtualCards = new virtualCards();
 virtualcardpayload virtualcardpayload = new virtualcardpayload():
 virtualcardpayload.setPage(page);
-// virtualcardpayload.setSecret_Key(secret_key);
+virtualcardpayload.setSecret_Key(secret_key);
+virtualcardpayload.setTest(test);
 
 String response = virtualCards.dovirtualcardget(virtualcardpayload);
 ```
@@ -200,7 +214,8 @@ Sample Code to terminate a virtual card.
 virtualCards virtualCards = new virtualCards();
 virtualcardpayload virtualcardpayload = new virtualcardpayload():
 virtualcardpayload.setId(id);
-// virtualcardpayload.setSecret_Key(secret_key);
+virtualcardpayload.setSecret_Key(secret_key);
+virtualcardpayload.setTest(test);
 
 String response = virtualCards.dovirtualcardterminate(virtualcardpayload);
 ```
@@ -208,37 +223,40 @@ String response = virtualCards.dovirtualcardterminate(virtualcardpayload);
 Sample Code to fund a virtual card.
 ```java
 virtualCards virtualCards = new virtualCards();
-virtualcardpayload virtualcardpayload = new virtualcardpayload():
-virtualcardpayload.setId(id);
-virtualcardpayload.setAmount(amount);
-virtualcardpayload.setDebit_currency(debit_currency);
-// virtualcardpayload.setSecret_Key(secret_key);
+fundcardpayload fundcardpayload = new fundcardpayload():
+fundcardpayload.setId(id);
+fundcardpayload.setAmount(amount);
+fundcardpayload.setDebit_currency(debit_currency);
+fundcardpayload.setSecret_Key(secret_key);
+fundcardpayload.setTest(test);
 
-String response = virtualCards.dovirtualcardfund(virtualcardpayload);
+String response = virtualCards.dovirtualcardfund(fundcardpayload);
 ```
 
 Sample Code to get a virtual card transaction.
 ```java
 virtualCards virtualCards = new virtualCards();
-virtualcardpayload virtualcardpayload = new virtualcardpayload():
-virtualcardpayload.setId(id);
-virtualcardpayload.setFromDate(FromDate);
-virtualcardpayload.setToDate(ToDate);
-virtualcardpayload.setPageIndex(PageIndex);
-virtualcardpayload.setPageSize(pagesize);
-virtualcardpayload.setCardId(cardid);
-// virtualcardpayload.setSecret_Key(secret_key);
+fetchcardpayload fetchcardpayload = new fetchcardpayload():
+fetchcardpayload.setId(id);
+fetchcardpayload.setFromDate(FromDate);
+fetchcardpayload.setToDate(ToDate);
+fetchcardpayload.setPageIndex(PageIndex);
+fetchcardpayload.setPageSize(pagesize);
+fetchcardpayload.setCardId(cardid);
+fetchcardpayload.setSecret_Key(secret_key);
+fetchcardpayload.setTest(test);
 
-String response = virtualCards.dovirtualcardfetchtrans(virtualcardpayload);
+String response = virtualCards.dovirtualcardfetchtrans(fetchcardpayload);
 ```
 
 ------
 ```java
 virtualCards virtualCards = new virtualCards();
 withdrawcardpayload withdrawcardpayload = new withdrawcardpayload():
-virtualcardpayload.setCard_id(card_id);
-virtualcardpayload.setAmount(amount);
-// virtualcardpayload.setSecret_Key(secret_key);
+withdrawcardpayload.setCard_id(card_id);
+withdrawcardpayload.setAmount(amount);
+withdrawcardpayload.setSecret_Key(secret_key);
+withdrawcardpayload.setTest(test);
 
 String response = virtualCards.dovirtualcardfwithdraw(withdrawcardpayload);
 ```
@@ -258,7 +276,8 @@ ebillpayload.setAmount(amount);
 ebillpayload.setPhonenumber(phonenumber);
 ebillpayload.setEmail(email);
 ebillpayload.setTxRef(txref);
-//ebillpayload.setSeckey(SECKEY);
+ebillpayload.setSeckey(SECKEY);
+ebillpayload.setTest(test);
 
 String response = ebills.doebillscreate(ebillpayload);
 ```
@@ -284,7 +303,8 @@ Refund refund = new Refund();
 refundPayload refundpayload = new refundPayload();
 refundpayload.setRef(ref);
 refundpayload.setAmount(amount);
-//refundpayload.setSceretKey(seckey);
+refundpayload.setSceretKey(seckey);
+refundpayload.setTest(test);
 
 String response = refund.dorefund(refundpayload);
 ```
@@ -304,7 +324,8 @@ tokenchargepayload.setFirstname(firstname);
 tokenchargepayload.setLastname(Lastname);
 tokenchargepayload.setIP(ip);
 tokenchargepayload.setTxref(texref);
-//tokenchargepayload.setSeckey(Seckey);
+tokenchargepayload.setSeckey(Seckey);
+tokenchargepayload.settest(test);
 
 String response = tokencharge.dotokenizedcharge(tokenchargepayload);
 ```
@@ -316,7 +337,8 @@ tokenCharge tokencharge = new tokenCharge();
 tokenChargePayload tokenchargepayload = new tokenChargePayload():
 tokenchargepayload.setEmail(email);
 tokenchargepayload.setToken(token);
-//tokenchargepayload.setSeckey(Seckey);
+tokenchargepayload.setSeckey(Seckey);
+tokenchargepayload.settest(test);
 
 String response = tokencharge.dotokenizedcharge(tokenchargepayload);
 ```
