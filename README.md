@@ -22,9 +22,8 @@ cardload.setDevice_fingerprint(device_fingerprint)
 String response = cardPayment.doflwcardpayment(cardload);
 
 JSONObject myObject = new JSONObject(response);
-JSONObject Object = myObject.optJSONObject("data");
 
-if(myObject.optString("status").equals("success") && Object.optString("suggested_auth").equals("PIN"))
+if(myObject.optString("suggested_auth").equals("PIN"))
 {
   //get PIN fom customer
   cardload.setPin(PIN);
@@ -44,7 +43,7 @@ validatecardpayload.setOTP(OTP);
   
 response = validatecardcharge.doflwcardvalidate(validatecardpayload);
 }
-else if(myObject.optString("status").equals("success") && Object.optString("suggested_auth").equals("NOAUTH_INTERNATIONAL"))
+else if(myObject.optString("suggested_auth").equals("NOAUTH_INTERNATIONAL"))
 {
   //billing info - billingzip, billingcity, billingaddress, billingstate, billingcountry
   cardload.setBillingaddress(Billingaddress);
@@ -68,7 +67,7 @@ validatecardpayload.setOTP(OTP);
   
 response = validatecardcharge.doflwcardvalidate(validatecardpayload);
 }
-else if(myObject.optString("status").equals("success") && Object.optString("authurl")!="N/A")
+else if(myObject.optString("authurl")!="N/A")
 {
   //load the url in an IFRAME
 }
