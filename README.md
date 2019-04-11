@@ -1,4 +1,4 @@
-# RAVE JAVA
+# RAVE JAVA 🍻
 ---
 Services implemented are:
 ---
