@@ -1,5 +1,29 @@
-# Direct Charge
+# RAVE JAVA
+---
+Services implemneted are:
+---
+- Card payment
+- Mobile money
+- Payment Validation
+- Virtual cards
+- QR payments
+- Bills
+- Ebills
+- BVN Validation
+- Refunds
+- Tokenized Charge
+- PaymentPlan
+- Subscriptions
 
+---
+How to install:
+---
+
+
+Examples:
+---
+
+## Direct Charge
 ```java
 cardPayment cardPayment = new cardPayment();
 cardLoad cardload = new cardLoad cardload();
@@ -34,16 +58,16 @@ if(myObject.optString("suggested_auth").equals("PIN"))
   cardload.setSuggested_auth("PIN");
   String response_one = cardPayment.doflwcardpayment(cardload);
   
-JSONObject myObject = new JSONObject(response_one);
-JSONObject Object = myObject.optJSONObject("data");
+JSONObject iObject = new JSONObject(response_one);
+JSONObject Object = iObject.optJSONObject("data");
   
-String flwRef = Object.optString("flwRef")
+String transaction_reference = Object.optString("flwRef");
   
 validateCardCharge validatecardcharge = new validateCardCharge();
 validateCardPayload validatecardpayload = new validateCardPayload();
 validatecardpayload.setPBFPubKey(PBFPubKey);
 validatecardpayload.setTransaction_reference(transaction_reference);
-validatecardpayload.setOTP(OTP);
+validatecardpayload.setOtp(OTP);
   
 response = validatecardcharge.doflwcardvalidate(validatecardpayload);
 }
@@ -58,16 +82,16 @@ else if(myObject.optString("suggested_auth").equals("NOAUTH_INTERNATIONAL"))
   cardload.setSuggested_auth("NOAUTH_INTERNATIONAL");
   String response_one = cardPayment.doflwcardpayment(cardload);
   
-JSONObject myObject = new JSONObject(response_one);
-JSONObject Object = myObject.optJSONObject("data");
+JSONObject iObject = new JSONObject(response_one);
+JSONObject Object = iObject.optJSONObject("data");
   
-String flwRef = Object.optString("flwRef")
+String transaction_reference = Object.optString("flwRef")
   
 validateCardCharge validatecardcharge = new validateCardCharge();
 validateCardPayload validatecardpayload = new validateCardPayload();
 validatecardpayload.setPBFPubKey(PBFPubKey);
 validatecardpayload.setTransaction_reference(transaction_reference);
-validatecardpayload.setOTP(OTP);
+validatecardpayload.setOtp(OTP);
   
 response = validatecardcharge.doflwcardvalidate(validatecardpayload);
 }
@@ -316,17 +340,16 @@ Sample code for charging tokenised cards
 
 ```java
 tokenCharge tokencharge = new tokenCharge();
-tokenChargePayload tokenchargepayload = new tokenChargePayload():
+tokenChargePayload tokenchargepayload = new tokenChargePayload();
 tokenchargepayload.setCurrency(currency);
 tokenchargepayload.setToken(token);
 tokenchargepayload.setAmount(amount);
 tokenchargepayload.setEmail(email);
 tokenchargepayload.setFirstname(firstname);
 tokenchargepayload.setLastname(Lastname);
-tokenchargepayload.setIP(ip);
-tokenchargepayload.setTxref(texref);
-tokenchargepayload.setSeckey(Seckey);
-tokenchargepayload.settest(test);
+tokenchargepayload.setTxRef(texref);
+tokenchargepayload.setSECKEY(Seckey);
+tokenchargepayload.setTest(test);
 
 String response = tokencharge.dotokenizedcharge(tokenchargepayload);
 ```
@@ -338,8 +361,40 @@ tokenCharge tokencharge = new tokenCharge();
 tokenChargePayload tokenchargepayload = new tokenChargePayload():
 tokenchargepayload.setEmail(email);
 tokenchargepayload.setToken(token);
-tokenchargepayload.setSeckey(Seckey);
+tokenchargepayload.setSECKEY(Seckey);
 tokenchargepayload.settest(test);
+```
 
 String response = tokencharge.dotokenizedcharge(tokenchargepayload);
+
+## Transfers
+
+```java
+transfers transfers = new transfers();
+transferPayload transferPayload = new transferPayload();
+transferPayload.setSeckey(seckey);
+transferPayload.setReference(ref);
+transferPayload.setaccount_bank(accbank);
+transferPayload.setaccount_number(account_number);
+transferPayload.setamount(amount);
+transferPayload.setnarration(narration);
+transferPayload.setcurrency(currency);
+transferPayload.setreference(reference);
 ```
+
+## Transfers
+Sample code to create payment plan
+
+```java
+paymentplan paymentplan = new paymentplan();
+pamentplancreatepayload pamentplancreatepayload = new pamentplancreatepayload();
+pamentplancreatepayload.setSeckey(seckey);
+pamentplancreatepayload.setamount(amount);
+pamentplancreatepayload.setname(name);
+pamentplancreatepayload.setinterval(interval);
+pamentplancreatepayload.setduration(duration);
+
+String response = paymentplan.docreatepayment(pamentplancreatepayload);
+
+```
+
