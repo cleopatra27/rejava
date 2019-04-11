@@ -1,6 +1,6 @@
 # RAVE JAVA
 ---
-Services implemneted are:
+Services implemented are:
 ---
 - Card payment
 - Mobile money
@@ -14,6 +14,7 @@ Services implemneted are:
 - Tokenized Charge
 - PaymentPlan
 - Subscriptions
+- Bank payments
 
 ---
 How to install:
@@ -67,6 +68,7 @@ validateCardCharge validatecardcharge = new validateCardCharge();
 validateCardPayload validatecardpayload = new validateCardPayload();
 validatecardpayload.setPBFPubKey(PBFPubKey);
 validatecardpayload.setTransaction_reference(transaction_reference);
+validatecardpayload.settest(test);
 validatecardpayload.setOtp(OTP);
   
 response = validatecardcharge.doflwcardvalidate(validatecardpayload);
@@ -91,6 +93,7 @@ validateCardCharge validatecardcharge = new validateCardCharge();
 validateCardPayload validatecardpayload = new validateCardPayload();
 validatecardpayload.setPBFPubKey(PBFPubKey);
 validatecardpayload.setTransaction_reference(transaction_reference);
+validatecardpayload.settest(test);
 validatecardpayload.setOtp(OTP);
   
 response = validatecardcharge.doflwcardvalidate(validatecardpayload);
@@ -367,22 +370,7 @@ tokenchargepayload.settest(test);
 
 String response = tokencharge.dotokenizedcharge(tokenchargepayload);
 
-## Transfers
-
-```java
-transfers transfers = new transfers();
-transferPayload transferPayload = new transferPayload();
-transferPayload.setSeckey(seckey);
-transferPayload.setReference(ref);
-transferPayload.setaccount_bank(accbank);
-transferPayload.setaccount_number(account_number);
-transferPayload.setamount(amount);
-transferPayload.setnarration(narration);
-transferPayload.setcurrency(currency);
-transferPayload.setreference(reference);
-```
-
-## Transfers
+## Payment plan
 Sample code to create payment plan
 
 ```java
@@ -393,8 +381,46 @@ pamentplancreatepayload.setamount(amount);
 pamentplancreatepayload.setname(name);
 pamentplancreatepayload.setinterval(interval);
 pamentplancreatepayload.setduration(duration);
+pamentplancreatepayload.settest(test);
 
 String response = paymentplan.docreatepayment(pamentplancreatepayload);
 
 ```
 
+Sample code to list payment plan
+```java
+paymentplan paymentplan = new paymentplan();
+paymentplanfetch paymentplanfetch = new paymentplanfetch();
+paymentplanfetch.setSeckey(seckey);
+paymentplanfetch.setid(id);
+paymentplanfetch.setq(q);
+paymentplanfetch.settest(test);
+
+String response = paymentplan.dopaymentplanlist(paymentplanfetch);
+
+```
+
+Sample code to cancel payment plan
+```java
+paymentplan paymentplan = new paymentplan();
+paymentplanfetch paymentplanfetch = new paymentplanfetch();
+paymentplanfetch.setid(id);
+paymentplanfetch.setSeckey(seckey);
+paymentplanfetch.settest(test);
+
+String response = paymentplan.dopaymentplanlist(paymentplanfetch);
+
+```
+
+## Verify Transactions
+Sample code to verify transactions
+
+```java
+transValidation transValidation = . new transValidation();
+transverifyPayload transverifyPayload . = new transverifyPayload();
+transverifyPayload.setSECKEY(sckey);
+transverifyPayload.settxref(txref);
+transverifyPayload.setTest(test);
+
+String response = transValidation.bvnvalidate(transverifyPayload);
+```
