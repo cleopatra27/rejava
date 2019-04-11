@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.flutterwave.rave.java.entry.cardPaymentTest" time="3.251" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="com.flutterwave.rave.java.entry.cardPaymentTest" time="10.998" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.1+13-LTS"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib"/>
     <property name="gopherProxySet" value="false"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/cleopatradouglas/desktop/rejava"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/cleopatradouglas/NewFolder/ravejava"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,13 +15,12 @@
     <property name="user.country" value="NG"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/cleopatradouglas/Desktop/rejava"/>
+    <property name="user.dir" value="/Users/cleopatradouglas/NewFolder/ravejava"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="11.0.1+13-LTS"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="os.arch" value="x86_64"/>
     <property name="java.io.tmpdir" value="/var/folders/pm/q9h5b59x11d5_wg2px848g940000gn/T/"/>
-    <property name="gpg.skip" value="true"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
@@ -46,7 +45,7 @@
     <property name="java.class.path" value="/usr/local/Cellar/maven/3.6.0/libexec/boot/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher install -Dgpg.skip"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean deploy"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -65,5 +64,5 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.flutterwave.rave.java.entry.cardPaymentTest" name="testDoflwcardpayment" time="3.251"/>
+  <testcase classname="com.flutterwave.rave.java.entry.cardPaymentTest" name="testDoflwcardpayment" time="10.998"/>
 </testsuite>
