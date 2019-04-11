@@ -19,9 +19,29 @@ Services implemented are:
 ---
 How to install:
 ---
+There are two ways to install this.
 
+METHOD 1:
+Download RAVE-JAVA
+Add jar file as a Module to your Java project:
+On Intellij IDEA: File -> Project Structure -> Modules -> Dependencies Tab -> Add -> JARs or Directories -> Attach jar
+On Netbeans: Project properties -> Libraries -> Compile -> ADD JAR/folder -> Add Jar
 
-Examples:
+METHOD 2:
+## Maven users
+Add this dependency to your project's POM: 
+
+```java
+<dependency>
+ <groupId>com.flutterwave</groupId>
+    <artifactId>Rave-Java</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+
+---
+
+Usage:
 ---
 
 ## Direct Charge
